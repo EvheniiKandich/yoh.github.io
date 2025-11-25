@@ -1,3 +1,231 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  background: #020014;
+  color: #E0E0E0;
+  position: relative;
+}
+body ::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.4), transparent 50%), radial-gradient(circle at 85% 30%, rgba(13, 148, 136, 0.25), transparent 50%), radial-gradient(circle at 50% 80%, rgba(219, 39, 119, 0.2), transparent 50%);
+  filter: blur(80px);
+}
+
+.lang-switch {
+  position: absolute; /* fixed in angle */
+  top: 2vh; /* top retreat */
+  right: 2rem; /* right retreat */
+  z-index: 10;
+  text-decoration: none;
+  font-family: "Science Gothic", sans-serif;
+  color: #E0E0E0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.glass-card-small {
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px; /* Овальна форма */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+}
+
+.glass-card-small:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+#stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  opacity: 0.8;
+  animation: twinkle infinite ease-in-out;
+}
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  } /* Flash */
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
+
+.card-container {
+  display: grid;
+  /* ПО ЗАМОВЧУВАННЮ (Мобільні): 1 колонка */
+  grid-template-columns: 1fr;
+  gap: 2rem; /* Відступ між картками (32px) */
+  width: 90vw; /* Займаємо 90% ширини екрану */
+  max-width: 1200px; /* Але не ширше 1200px на гігантських моніторах */
+  margin: 8rem auto 4rem; /* Відступ зверху (щоб не налізти на кнопку мови), авто по боках */
+  padding-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .card-container .card-container {
+    /* ТУТ МАГІЯ: Рівно 2 колонки */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* card style */
+.glass-card {
+  /* Робимо картку гнучкою, щоб текст центрувався */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центруємо по вертикалі */
+  align-items: center; /* Центруємо по горизонталі */
+  text-align: center; /* Текст по центру */
+  min-height: 25vh; /* Мінімальна висота: 25% від висоти екрану (робить їх великими) */
+  padding: 3rem; /* Великі внутрішні відступи для "повітря" */
+  /* Скляний стиль (той самий, що був) */
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px); /* Трохи більше блюру */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.glass-card h3 {
+  font-size: 2.5rem; /* Великий заголовок */
+  margin: 0 0 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.glass-card p {
+  font-size: 1.2rem; /* Читабельний підпис */
+  opacity: 0.8;
+  max-width: 80%; /* Щоб текст не розлазився надто широко */
+  line-height: 1.5;
+}
+
+/* text inside cards settings */
+.glass-card h3 {
+  font-size: 2.5rem; /* Великий заголовок */
+  margin: 0 0 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card p {
+  font-size: 1.2rem; /* Читабельний підпис */
+  opacity: 0.8;
+  max-width: 80%; /* Щоб текст не розлазився надто широко */
+  line-height: 1.5;
+}
+
+/* --- HOVER ANIMATION --- */
+.glass-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Легке збільшення */
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 40px rgba(100, 50, 200, 0.3); /* Фіолетове світіння */
+  border-color: rgba(255, 255, 255, 0.6);
+}
 
 /*# sourceMappingURL=style.css.map */
