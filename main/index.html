@@ -40,46 +40,76 @@
     <!-- end of script -->
 </head>
 <body>
-    <!-- stars animation container  -->
-    <div id="stars-container"></div>
+<div id="stars-container"></div>
 
-    <nav>
-        <a href="#" class="lang-switch glass-card-small">
-            UA/EN
-        </a>
-    </nav>
+<a href="#" class="lang-switch" id="langSwitch">UA/EN</a>
 
-    <main>
-        <div class="card-container">
-
-            <a href="#" class="glass-card big-card">
-                <div class="card-content">
-                    <h3>📅 schedule</h3>
-                    <p>Переглянути графік занять</p>
-                </div>
-            </a>
-
-            <a href="#" class="glass-card big-card">
-                <div class="card-content">
-                    <h3>🚀 Projects</h3>
-                    <p>Мій код та кейси</p>
-                </div>
-            </a>
-
-            <a href="#" class="glass-card big-card">
-                <div class="card-content">
-                    <h3>📬 Contacts</h3>
-                    <p>Написати мені</p>
-                </div>
-            </a>
-
-            <a href="#" class="glass-card big-card">
-                <div class="card-content">
-                    <h3>🪖 Ammunition</h3>
-                    <p>My airsoft ammunition</p>
-                </div>
-            </a>
+<main>
+    <div class="card-container">
+        <!-- Schedule Card -->
+        <div class="glass-card" data-card="schedule">
+            <div class="card-header">
+                <h3>📅 <span data-lang-key="schedule">Schedule</span></h3>
+                <p data-lang-key="scheduleDesc">Переглянути графік занять</p>
+            </div>
+            <div class="card-content-expanded">
+                <div class="schedule-container" id="scheduleContent"></div>
+            </div>
         </div>
-    </main>
+
+        <!-- Projects Card -->
+        <div class="glass-card" data-card="projects">
+            <div class="card-header">
+                <h3>🚀 <span data-lang-key="projects">Projects</span></h3>
+                <p data-lang-key="projectsDesc">Мій код та кейси</p>
+            </div>
+            <div class="card-content-expanded">
+                <p>Coming soon...</p>
+            </div>
+        </div>
+
+        <!-- Contacts Card -->
+        <div class="glass-card" data-card="contacts">
+            <div class="card-header">
+                <h3>📬 <span data-lang-key="contacts">Contacts</span></h3>
+                <p data-lang-key="contactsDesc">Написати мені</p>
+            </div>
+            <div class="card-content-expanded">
+                <p>Coming soon...</p>
+            </div>
+        </div>
+
+        <!-- Ammunition Card -->
+        <div class="glass-card" data-card="ammunition">
+            <div class="card-header">
+                <h3>🪖 <span data-lang-key="ammunition">Ammunition</span></h3>
+                <p data-lang-key="ammunitionDesc">My airsoft ammunition</p>
+            </div>
+            <div class="card-content-expanded">
+                <div class="ammunition-container">
+                    <div class="soldier-diagram">
+                        <div class="soldier-body">
+                            <div class="body-part head" data-equipment="head">
+                                <span class="part-label">Head</span>
+                            </div>
+                            <div class="body-part torso" data-equipment="torso">
+                                <span class="part-label">Torso</span>
+                            </div>
+                            <div class="body-part legs" data-equipment="legs">
+                                <span class="part-label">Legs</span>
+                            </div>
+                            <div class="body-part backpack" data-equipment="backpack">
+                                <span class="part-label">Backpack</span>
+                            </div>
+                            <div class="body-part weapon" data-equipment="weapon">
+                                <span class="part-label">Weapon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>
